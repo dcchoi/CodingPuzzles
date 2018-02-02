@@ -1,6 +1,7 @@
 *.class
 *.log
 *.txt
+*.pdf
 *.vscode
 
 # sbt specific
