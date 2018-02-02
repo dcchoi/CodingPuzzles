@@ -2,17 +2,27 @@
 let memo = [];
 
 function fib (input){
-    if(input == 0){
-        return 0;
+    if(input < 0) {
+        throw "No negatives!";
+        return;
     }
-    else if(input == 1){
-        return 1;
-    }else{
-        memo[input - 2] = memo[input-2] == undefined ? fib(input - 2) : memo[input - 2];
-        memo[input - 1] = memo[input-1] == undefined ? fib(input - 1) : memo[input - 1];
 
-        return(memo[input-2] + memo[input-1]);
+    if(input == 0 || input == 1){
+        return input;
     }
+
+    //We have already solved this input return solution
+    if(memo[input] != undefined){
+        return memo[input];
+    }
+
+    //Haven't solved yet, solve
+    let memoResult = fib(input-2) + fib(input-1)
+
+    //Store solution
+    memo[input] == memoResult
+
+    return memoResult;
 }
 
-console.log(fib(7));
+console.log(fib(0));
